@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zebras — The rare doctors who went beyond the clinic.</title>
+<meta name="description" content="Zebras is a conversation with the physicians who went further — into capital, companies, policy, and public life. Hosted by Veeral Mehta, MD.">
+<link rel="canonical" href="https://zebraspodcast.com/">
+<meta property="og:title" content="Zebras">
+<meta property="og:description" content="The rare doctors who went beyond the clinic. Hosted by Veeral Mehta, MD.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zebraspodcast.com/">
+<meta property="og:site_name" content="Zebras">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zebras">
+<meta name="twitter:description" content="The rare doctors who went beyond the clinic. Hosted by Veeral Mehta, MD.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --ink-soft: #1c1c1c;
+    --bone: #f5f1e8;
+    --bone-deep: #ebe5d6;
+    --teal: #0d4f5c;
+    --teal-bright: #156b7a;
+    --charcoal: #2b2b2b;
+    --muted: #6b6b6b;
+    --line: #cfc7b5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: var(--bone);
+    color: var(--charcoal);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+  .mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+
+  /* ============ NAV ============ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(245, 241, 232, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 300ms ease;
+  }
+  nav.scrolled { border-bottom-color: var(--line); }
+  .logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    position: relative;
+  }
+
+  .stripes {
+    display: flex;
+    height: 100%;
+    width: 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .stripe {
+    flex: 1;
+    height: 100%;
+  }
+  .stripe.dark { background: var(--ink); }
+  .stripe.light { background: var(--bone); }
+
+  .hero-content {
+    padding: 10rem 4rem 4rem 4rem;
+    max-width: 1400px;
+    grid-column: 2;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 2.5rem;
+    animation: fadeIn 900ms ease both;
+    animation-delay: 200ms;
+  }
+
+  h1.wordmark {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(5rem, 16vw, 14rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 3rem;
+    animation: fadeUp 1000ms ease both;
+    animation-delay: 300ms;
+  }
+
+  .tagline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    line-height: 1.3;
+    color: var(--teal);
+    max-width: 800px;
+    margin-bottom: 3rem;
+    animation: fadeUp 1000ms ease both;
+    animation-delay: 500ms;
+  }
+
+  .hero-rule {
+    width: 80px;
+    height: 2px;
+    background: var(--ink);
+    margin-bottom: 2rem;
+    animation: grow 900ms ease both;
+    animation-delay: 700ms;
+  }
+
+  @keyframes grow { from { width: 0; } to { width: 80px; } }
+
+  .hero-description {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 620px;
+    margin-bottom: 3rem;
+    color: var(--charcoal);
+    animation: fadeUp 1000ms ease both;
+    animation-delay: 800ms;
+  }
+
+  .signup {
+    display: flex;
+    align-items: stretch;
+    max-width: 560px;
+    border-bottom: 2px solid var(--ink);
+    animation: fadeUp 1000ms ease both;
+    animation-delay: 1000ms;
+  }
+  .signup input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 1rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    outline: none;
+  }
+  .signup input::placeholder {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .signup button {
+    border: none;
+    background: transparent;
+    padding: 1rem 0 1rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    cursor: pointer;
+    transition: color 200ms ease;
+    white-space: nowrap;
+  }
+  .signup button:hover { color: var(--teal); }
+  .signup-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.75rem;
+    font-style: italic;
+    max-width: 560px;
+    animation: fadeIn 1000ms ease both;
+    animation-delay: 1200ms;
+  }
+
+  .coming-fall {
+    position: absolute;
+    top: 8rem;
+    right: 4rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    animation: fadeIn 1500ms ease both;
+    animation-delay: 1400ms;
+  }
+
+  /* ============ APHORISM SECTION ============ */
+  .aphorism {
+    padding: 10rem 4rem 10rem 10rem;
+    background: var(--bone);
+    position: relative;
+    border-top: 1px solid var(--line);
+  }
+  .aphorism-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 3rem;
+  }
+  .aphorism h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    max-width: 1100px;
+  }
+  .aphorism .punch {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--teal);
+  }
+  .aphorism-attribution {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 2.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--ink);
+  }
+  .aphorism-turn {
+    margin-top: 5rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+    color: var(--ink);
+    line-height: 1.3;
+    max-width: 900px;
+  }
+  .aphorism-turn-sub {
+    margin-top: 1.5rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--charcoal);
+    max-width: 800px;
+    line-height: 1.5;
+  }
+
+  /* ============ GUESTS ============ */
+  .guests {
+    padding: 8rem 4rem 8rem 10rem;
+    background: var(--ink);
+    color: var(--bone);
+  }
+  .guests-inner { max-width: 1200px; margin: 0 auto; }
+  .guests .section-label { color: var(--teal-bright); }
+  .guests h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: var(--bone);
+    margin-bottom: 1.5rem;
+  }
+  .guests-intro {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--bone-deep);
+    margin-bottom: 5rem;
+    max-width: 800px;
+  }
+
+  .archetypes {
+    display: flex;
+    flex-direction: column;
+  }
+  .archetype {
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(245, 241, 232, 0.15);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    align-items: baseline;
+  }
+  .archetype:last-child { border-bottom: 1px solid rgba(245, 241, 232, 0.15); }
+  .archetype-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-bright);
+    padding-top: 0.5rem;
+  }
+  .archetype-content h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--bone);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+  .archetype-content p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--bone-deep);
+    line-height: 1.5;
+  }
+
+  /* ============ ETHOS ============ */
+  .ethos {
+    padding: 10rem 4rem 10rem 10rem;
+    background: var(--bone);
+  }
+  .ethos-inner { max-width: 1200px; margin: 0 auto; }
+  .ethos h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+  .ethos-intro {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--muted);
+    margin-bottom: 5rem;
+    max-width: 700px;
+  }
+  .ethos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4rem 3.5rem;
+  }
+  .ethos-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .ethos-item .index {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--teal);
+  }
+  .ethos-item .rule {
+    width: 40px;
+    height: 1.5px;
+    background: var(--teal);
+  }
+  .ethos-item h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .ethos-item p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--charcoal);
+  }
+
+  /* ============ HOST ============ */
+  .host {
+    padding: 10rem 4rem 10rem 10rem;
+    background: var(--bone-deep);
+    border-top: 1px solid var(--line);
+  }
+  .host-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .host-text {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+    max-width: 720px;
+    margin-top: 2rem;
+  }
+  .host-text p { margin-bottom: 1.25rem; }
+  .host-text p:last-child { margin-bottom: 0; }
+  .host-text strong {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* ============ CTA ============ */
+  .cta {
+    padding: 10rem 4rem 10rem 10rem;
+    background: var(--bone);
+  }
+  .cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .cta h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
+  .cta p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--charcoal);
+    margin-bottom: 3rem;
+    max-width: 700px;
+  }
+  .cta .signup { max-width: 560px; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 5rem 4rem 3rem 10rem;
+    background: var(--ink);
+    color: var(--bone-deep);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(245, 241, 232, 0.15);
+  }
+  footer .logo {
+    color: var(--bone);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .footer-tagline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--teal-bright);
+    max-width: 380px;
+  }
+  .footer-col h4 {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-bright);
+    margin-bottom: 1rem;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--bone-deep);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 200ms ease;
+  }
+  .footer-col a:hover { color: var(--bone); }
+  .copyright {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .endmark {
+    display: flex;
+    gap: 3px;
+  }
+  .endmark span {
+    width: 6px;
+    height: 14px;
+    background: var(--bone);
+  }
+  .endmark span:nth-child(even) {
+    background: transparent;
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 800ms ease, transform 800ms ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links a { font-size: 0.65rem; }
+    .hero { grid-template-columns: 60px 1fr; }
+    .stripes { width: 60px; }
+    .hero-content { padding: 8rem 1.5rem 4rem 1.5rem; }
+    .aphorism, .guests, .ethos, .host, .cta {
+      padding-left: 2rem; padding-right: 2rem;
+    }
+    .coming-fall { display: none; }
+    .archetype { grid-template-columns: 1fr; gap: 0.5rem; }
+    .archetype-label { padding-top: 0; }
+    .ethos-grid { grid-template-columns: 1fr; gap: 3rem; }
+    footer { padding-left: 2rem; padding-right: 2rem; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* ============ SUCCESS STATE ============ */
+  .signup.success {
+    border-bottom-color: var(--teal);
+  }
+  .signup-success-msg {
+    display: none;
+    color: var(--teal);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .signup.success + .signup-note {
+    display: none;
+  }
+  .signup.success ~ .signup-success-msg {
+    display: block;
+    animation: fadeUp 600ms ease both;
+  }
+</style>
+</head>
+<body>
+
+<!-- Fixed left stripes - signature motif -->
+<div class="stripes" aria-hidden="true">
+  <div class="stripe dark"></div>
+  <div class="stripe light"></div>
+  <div class="stripe dark"></div>
+  <div class="stripe light"></div>
+  <div class="stripe dark"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo">Zebras.</div>
+  <div class="nav-links">
+    <a href="#thesis">Thesis</a>
+    <a href="#guests">Guests</a>
+    <a href="#ethos">Ethos</a>
+    <a href="#host">Host</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">A Podcast by Veeral Mehta, MD  ·  Launching May 2026</div>
+    <h1 class="wordmark">Zebras.</h1>
+    <p class="tagline">The rare doctors who went beyond the clinic.</p>
+    <div class="hero-rule"></div>
+    <p class="hero-description">
+      A conversation with the physicians who went further — into capital, companies, policy, and public life. Long-form conversations with the doctors building and shaping the future of medicine.
+    </p>
+    <form class="signup" id="hero-signup" novalidate>
+      <input type="email" placeholder="Your email" required aria-label="Email address" />
+      <button type="submit">Join the list →</button>
+    </form>
+    <p class="signup-note">Quarterly dispatches from the host. Guest news and first listens before launch.</p>
+    <p class="signup-success-msg">Thank you. You'll hear from me before anyone else.</p>
+  </div>
+  <div class="coming-fall">Season 01  /  May 2026</div>
+</section>
+
+<!-- APHORISM SECTION -->
+<section class="aphorism" id="thesis">
+  <div class="aphorism-inner">
+    <div class="section-label reveal">01  /  The thesis</div>
+    <h2 class="reveal">
+      When you hear hoofbeats, think horses — <span class="punch">not zebras.</span>
+    </h2>
+    <p class="aphorism-attribution reveal">
+      The first aphorism every physician learns. A warning, drilled into trainees on morning rounds, against over-diagnosing the rare.
+    </p>
+    <p class="aphorism-turn reveal">
+      This show is about the zebras.
+    </p>
+    <p class="aphorism-turn-sub reveal">
+      The physicians who did the uncommon thing — who took their training past the exam room and into the rooms where capital moves, companies build, policy forms, and the public listens. Rare, by any measure. Worth finding.
+    </p>
+  </div>
+</section>
+
+<!-- ARCHETYPES -->
+<section class="guests" id="guests">
+  <div class="guests-inner">
+    <div class="section-label reveal">02  /  Who you'll hear from</div>
+    <h2 class="reveal">Five arenas.<br>One category.</h2>
+    <p class="guests-intro reveal">
+      Physicians who took their training beyond the exam room — into the rooms where the future of medicine is actually built.
+    </p>
+
+    <div class="archetypes">
+      <div class="archetype reveal">
+        <div class="archetype-label">Capital</div>
+        <div class="archetype-content">
+          <h3>Physicians deploying capital at scale.</h3>
+          <p>Hedge funds. Private equity. Venture. The MDs whose clinical judgment now shapes where the next generation of healthcare investment goes.</p>
+        </div>
+      </div>
+
+      <div class="archetype reveal">
+        <div class="archetype-label">Companies</div>
+        <div class="archetype-content">
+          <h3>Founders and operators.</h3>
+          <p>The physicians who built the institutions medicine runs on — care delivery platforms, diagnostic companies, digital health, biotech.</p>
+        </div>
+      </div>
+
+      <div class="archetype reveal">
+        <div class="archetype-label">Policy</div>
+        <div class="archetype-content">
+          <h3>Physicians shaping the rules.</h3>
+          <p>Regulators, public health leaders, and the physicians who write the laws and frameworks the rest of the field lives under.</p>
+        </div>
+      </div>
+
+      <div class="archetype reveal">
+        <div class="archetype-label">Public life</div>
+        <div class="archetype-content">
+          <h3>Voices that reach beyond medicine.</h3>
+          <p>The doctors shaping how the public understands its own health — through writing, broadcasting, and platforms larger than any single clinic.</p>
+        </div>
+      </div>
+
+      <div class="archetype reveal">
+        <div class="archetype-label">Academia × Letters</div>
+        <div class="archetype-content">
+          <h3>Physician-writers and thinkers.</h3>
+          <p>The doctors whose work moves the field's self-understanding — the research, the books, the essays that change how medicine talks about itself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ETHOS -->
+<section class="ethos" id="ethos">
+  <div class="ethos-inner">
+    <div class="section-label reveal">03  /  The editorial</div>
+    <h2 class="reveal">What this show does.<br>And what it refuses.</h2>
+    <p class="ethos-intro reveal">Three rules. Every episode tests against them.</p>
+
+    <div class="ethos-grid">
+      <div class="ethos-item reveal">
+        <div class="index">01.</div>
+        <div class="rule"></div>
+        <h3>Goes past the résumé.</h3>
+        <p>Skip the CV recitation. We've read it. We are here to find out how the guest actually thinks — the reasoning behind the decisions that shaped a career.</p>
+      </div>
+
+      <div class="ethos-item reveal">
+        <div class="index">02.</div>
+        <div class="rule"></div>
+        <h3>No hot takes. No hype.</h3>
+        <p>The show is quiet. It earns attention through substance. No political combat. No outrage bait. Real talk about real work.</p>
+      </div>
+
+      <div class="ethos-item reveal">
+        <div class="index">03.</div>
+        <div class="rule"></div>
+        <h3>Honors the oath.</h3>
+        <p>"First, do no harm" is a real tension when the patient is a market, a policy, or a country. We ask how guests navigate it — without looking away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOST -->
+<section class="host" id="host">
+  <div class="host-inner">
+    <div>
+      <div class="section-label reveal">04  /  About the host</div>
+      <div class="host-text reveal">
+        <p>
+          <strong>Veeral Mehta, MD</strong> is a board-certified internal medicine physician and a Senior Associate Investor at LifeX Ventures in New York City.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="section-label reveal">05  /  Stay in the loop</div>
+    <h2 class="reveal">Before anyone else hears it.</h2>
+    <p class="reveal">
+      Episode one lands in May 2026. Subscribe to get the first guest announcement, the launch notice, and quarterly dispatches from the host about what he's hearing in capital, companies, policy, and public life.
+    </p>
+    <form class="signup reveal" id="cta-signup" novalidate>
+      <input type="email" placeholder="Your email" required aria-label="Email address" />
+      <button type="submit">Subscribe →</button>
+    </form>
+    <p class="signup-success-msg">Thank you. You'll hear from me before anyone else.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo">Zebras.</div>
+      <p class="footer-tagline">The rare doctors who went beyond the clinic. Hosted by Veeral Mehta, MD.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Show</h4>
+      <a href="#thesis">Thesis</a>
+      <a href="#guests">Guests</a>
+      <a href="#ethos">Editorial</a>
+      <a href="#host">Host</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="#">LinkedIn</a>
+      <a href="#">X / Twitter</a>
+    </div>
+  </div>
+  <div class="copyright">
+    <span>© 2026 Zebras.  ·  Built in New York.</span>
+    <div class="endmark" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Intersection observer for reveal animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -80px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  // Form handling (both forms share logic)
+  document.querySelectorAll('.signup').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = form.querySelector('input');
+      const email = input.value.trim();
+      if (!email || !email.includes('@')) {
+        input.focus();
+        return;
+      }
+      // This is where you'd wire up to ConvertKit / Beehiiv / Mailchimp
+      // For now, we'll just show success state
+      console.log('Email captured:', email);
+      form.classList.add('success');
+      form.querySelector('button').textContent = '✓ Subscribed';
+      form.querySelector('button').disabled = true;
+      input.disabled = true;
+    });
+  });
+
+  // Smooth scroll for nav links (polyfill for safety)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
